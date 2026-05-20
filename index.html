@@ -408,33 +408,27 @@ footer{
 
     <!-- WASHROOM -->
 
-    <div class="card">
+    <!-- WASHROOM -->
 
-        <h2>🧹 Washroom Cleaning Rotation</h2>
+<div class="card">
 
-        <p>
-            Every week or every 15 days, one person must completely clean the washroom.
-        </p>
+    <h2>🧹 Washroom Cleaning Rotation</h2>
 
-        <div class="washroom-container">
+    <p>
+        Every week or every 15 days, one person must completely clean the washroom.
+    </p>
 
-            <div class="person red" onclick="toggleClean(this)">Wahib</div>
-            <div class="person red" onclick="toggleClean(this)">Zuber</div>
-            <div class="person red" onclick="toggleClean(this)">Sakhlen</div>
-            <div class="person red" onclick="toggleClean(this)">Ismail</div>
-            <div class="person red" onclick="toggleClean(this)">Afrid</div>
+    <div class="washroom-container">
 
-        </div>
-
-        <div class="buttons">
-
-            <button class="clear-btn" onclick="clearWashroom()">
-                Reset Cleaning Status
-            </button>
-
-        </div>
+        <div class="person green">Wahib</div>
+        <div class="person green">Zuber</div>
+        <div class="person green">Sakhlen</div>
+        <div class="person green">Ismail</div>
+        <div class="person green">Afrid</div>
 
     </div>
+
+</div>
 
     <!-- RULES -->
 
@@ -660,21 +654,6 @@ function toggleClean(element){
     element.classList.toggle('red');
 
 }
-
-function clearWashroom(){
-
-    const persons =
-    document.querySelectorAll('.person');
-
-    persons.forEach(person=>{
-
-        person.classList.remove('green');
-        person.classList.add('red');
-
-    });
-
-}
-
 </script>
 
 <footer>
