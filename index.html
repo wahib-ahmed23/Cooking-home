@@ -123,6 +123,25 @@ button{
 .green{
     background:#0b8043;
 }
+    .rules li{
+    margin-bottom:14px;
+    line-height:1.7;
+}
+
+.highlight{
+    background:#fff8e1;
+    border-left:6px solid #ff9800;
+    padding:18px;
+    border-radius:12px;
+    margin-top:20px;
+}
+
+.notice{
+    background:#e3f2fd;
+    border-left:6px solid #1976d2;
+    padding:18px;
+    border-radius:12px;
+}
 </style>
 </head>
 
@@ -262,8 +281,125 @@ Afrid
 
 <button class="clear-btn"
 onclick="clearWashroom()">
-🗑️
+
 </button>
+
+</div>
+    <div class="card">
+
+<h2>📋 Important House Rules</h2>
+
+<ul class="rules">
+
+<li>
+🍲 Whoever cooks the food is responsible for washing vessels and cleaning everything used while cooking.
+</li>
+
+<li>
+🧽 After cooking, clean the cooktop, kitchen platform, vessels, and sink properly.
+</li>
+
+<li>
+🗑️Weekly or every 15 days one person must completely clean the washroom.
+</li>
+
+<li>
+🗑️ Use separate dustbins for Dry Waste and Wet Waste.
+</li>
+
+<li>
+❌ Do not mix wet waste with dry waste.
+</li>
+
+<li>
+🚫 Do not throw plastics in the wet waste dustbin.
+</li>
+
+<li>
+💧 Avoid unnecessary water usage because water bills are paid by ourselves.
+</li>
+
+<li>
+👕 Wash clothes in full loads instead of washing only a few clothes separately.
+Please avoid washing only a few clothes separately like
+3–4 shirts, pants, socks, or underwear at different times.
+</li>
+
+<li>
+💧 Try to collect clothes and wash them together in one or two full loads
+to reduce unnecessary water usage and electricity consumption.
+</li>
+
+<li>
+🍽️ If you cook personal food, after eating clean your vessels,
+kitchen area, and sink.
+</li>
+
+</ul>
+
+<div class="highlight">
+
+<h3>⚠️ Special Cooking Rule</h3>
+
+<br>
+
+<p>
+If someone does not know cooking,
+that person is still responsible for:
+</p>
+
+<ul style="margin-top:10px; margin-left:20px;">
+
+<li>Deciding what to cook</li>
+
+<li>Buying or arranging ingredients</li>
+
+<li>Cutting vegetables</li>
+
+<li>Preparing everything needed</li>
+
+<li>Managing kitchen work</li>
+
+</ul>
+
+<br>
+
+<p>
+That person can take help from another roommate
+for actual cooking only.
+</p>
+
+<br>
+
+<p>
+The helper only stands and cooks.
+All remaining responsibilities belong
+to the assigned person.
+</p>
+
+<br>
+
+<p>
+This help system rotates weekly —
+if one person helps this week,
+another roommate should help next week.
+</p>
+
+</div>
+
+<div class="notice" style="margin-top:20px;">
+
+<h3>🏠 Final Note</h3>
+
+<br>
+
+<p>
+Everyone should cooperate to keep the room clean,
+maintain hygiene, save water,
+and reduce unnecessary expenses.
+</p>
+
+</div>
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -411,6 +547,8 @@ function clearWashroom(){
 
 }
 </script>
-
+<footer style="text-align:center;padding:25px;color:#666;">
+Made for Better Room Management 🏠
+</footer>
 </body>
 </html>
