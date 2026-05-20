@@ -282,43 +282,111 @@ Everyone should cooperate to keep the room clean, maintain hygiene, save water, 
 Made for Better Room Management 🏠
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
-const inputs = document.querySelectorAll('.nameInput');
+const SUPABASE_URL =
+'https://ijhvrzydeecyahoygtmk.supabase.co';
 
-function saveNames(){
-    let values = [];
-    inputs.forEach(input => {
-        values.push(input.value);
-    });
+const SUPABASE_KEY =
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqaHZyenlkZWVjeWFob3lndG1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyMDEzNTEsImV4cCI6MjA5NDc3NzM1MX0.GSvg0ObZvpS-1BZGTpAzS0n8Yv9lttWHJLSYlEUbMNs';
 
-    localStorage.setItem('roomSchedule', JSON.stringify(values));
+const client = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
-    document.getElementById('status').innerText = "✅ Names Saved Successfully";
-}
+const inputs =
+document.querySelectorAll('.nameInput');
 
-function loadNames(){
-    let saved = JSON.parse(localStorage.getItem('roomSchedule'));
+const days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+];
 
-    if(saved){
-        inputs.forEach((input,index) => {
-            input.value = saved[index] || '';
-        });
+async function saveNames(){
+
+  for(let i=0;i<inputs.length;i++){
+
+    const day = days[i];
+    const person = inputs[i].value;
+
+    const { error } = await client
+      .from('room_schedule')
+      .upsert({
+        day: day,
+        person_name: person
+      },{
+        onConflict:'day'
+      });
+
+    if(error){
+      console.log(error);
     }
+
+  }
+
+  document.getElementById('status')
+  .innerText =
+  '✅ Names Saved & Shared To Everyone';
+
 }
 
-function clearNames(){
+async function loadNames(){
 
-    inputs.forEach(input => {
-        input.value = '';
-    });
+  const { data, error } = await client
+    .from('room_schedule')
+    .select('*');
 
-    localStorage.removeItem('roomSchedule');
+  if(error){
+    console.log(error);
+    return;
+  }
 
-    document.getElementById('status').innerText = "🗑️ All Names Cleared";
+  inputs.forEach(input=>{
+    input.value='';
+  });
+
+  data.forEach(row=>{
+
+    const index =
+    days.indexOf(row.day);
+
+    if(index !== -1){
+      inputs[index].value =
+      row.person_name;
+    }
+
+  });
+
+}
+
+async function clearNames(){
+
+  await client
+    .from('room_schedule')
+    .delete()
+    .neq('day','');
+
+  inputs.forEach(input=>{
+    input.value='';
+  });
+
+  document.getElementById('status')
+  .innerText =
+  '🗑️ All Names Cleared';
+
 }
 
 loadNames();
+
+setInterval(loadNames,3000);
 
 </script>
 
