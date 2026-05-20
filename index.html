@@ -26,14 +26,9 @@ header{
     text-align:center;
 }
 
-header h1{
-    font-size:2rem;
-    margin-bottom:5px;
-}
-
 .container{
     width:95%;
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
     padding:20px 0;
 }
@@ -44,6 +39,7 @@ header h1{
     padding:20px;
     margin-bottom:20px;
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    overflow:auto;
 }
 
 h2{
@@ -54,6 +50,7 @@ h2{
 table{
     width:100%;
     border-collapse:collapse;
+    min-width:1000px;
 }
 
 th{
@@ -62,8 +59,14 @@ th{
 
 th,td{
     padding:14px;
-    border-bottom:1px solid #ddd;
+    border:1px solid #ddd;
     text-align:center;
+}
+
+input[type="checkbox"]{
+    width:22px;
+    height:22px;
+    cursor:pointer;
 }
 
 .buttons{
@@ -79,7 +82,6 @@ button{
     border-radius:10px;
     font-size:1rem;
     cursor:pointer;
-    transition:0.3s;
 }
 
 .save-btn{
@@ -92,61 +94,10 @@ button{
     color:white;
 }
 
-button:hover{
-    transform:scale(1.02);
-}
-
 .status{
     margin-top:10px;
     color:#0b8043;
     font-weight:bold;
-}
-
-.badge{
-    display:inline-block;
-    background:#0b8043;
-    color:white;
-    padding:8px 14px;
-    border-radius:20px;
-    margin:6px;
-}
-
-.rules li{
-    margin-bottom:14px;
-    line-height:1.6;
-}
-
-.highlight{
-    background:#fff8e1;
-    border-left:6px solid #ff9800;
-    padding:18px;
-    border-radius:12px;
-    margin-top:20px;
-}
-
-.notice{
-    background:#e3f2fd;
-    border-left:6px solid #1976d2;
-    padding:18px;
-    border-radius:12px;
-}
-
-footer{
-    text-align:center;
-    padding:25px;
-    color:#666;
-}
-
-@media(max-width:768px){
-
-    header h1{
-        font-size:1.5rem;
-    }
-
-    button{
-        width:100%;
-    }
-
 }
 
 </style>
@@ -155,8 +106,8 @@ footer{
 <body>
 
 <header>
-<h1>🍳 Room Management Live Board</h1>
-<p>Cooking • Cleaning • Waste Management • Water Saving</p>
+<h1>🍳 Weekly Cooking Status Board</h1>
+<p>Live Shared Room Management</p>
 </header>
 
 <div class="container">
@@ -169,38 +120,68 @@ footer{
 
 <tr>
 <th>Name</th>
-<th>Yes</th>
-<th>No</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+<th>Saturday</th>
+<th>Sunday</th>
 </tr>
 
 <tr>
 <td>Wahib</td>
-<td><input type="checkbox" class="yesCheck"></td>
-<td><input type="checkbox" class="noCheck"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Sunday"></td>
 </tr>
 
 <tr>
 <td>Zuber</td>
-<td><input type="checkbox" class="yesCheck"></td>
-<td><input type="checkbox" class="noCheck"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Sunday"></td>
 </tr>
 
 <tr>
 <td>Sakhlen</td>
-<td><input type="checkbox" class="yesCheck"></td>
-<td><input type="checkbox" class="noCheck"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Sunday"></td>
 </tr>
 
 <tr>
 <td>Ismail</td>
-<td><input type="checkbox" class="yesCheck"></td>
-<td><input type="checkbox" class="noCheck"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Sunday"></td>
 </tr>
 
 <tr>
 <td>Afrid</td>
-<td><input type="checkbox" class="yesCheck"></td>
-<td><input type="checkbox" class="noCheck"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Sunday"></td>
 </tr>
 
 </table>
@@ -223,75 +204,7 @@ onclick="clearStatus()">
 
 </div>
 
-<div class="card">
-<h2>🧹 Washroom Cleaning Rotation</h2>
-
-<p>Every week or every 15 days one person must completely clean the washroom.</p>
-
-<div class="badge">Person 1</div>
-<div class="badge">Person 2</div>
-<div class="badge">Person 3</div>
-<div class="badge">Person 4</div>
-<div class="badge">Person 5</div>
-
 </div>
-
-<div class="card">
-
-<h2>📋 Important House Rules</h2>
-
-<ul class="rules">
-
-<li>🍲 Whoever cooks the food is responsible for washing vessels and cleaning everything used while cooking.</li>
-
-<li>🧽 After cooking, clean the cooktop, kitchen platform, vessels, and sink properly.</li>
-
-<li>🚿 Weekly or every 15 days one person must completely clean the washroom.</li>
-
-<li>🗑️ Use separate dustbins for Dry Waste and Wet Waste.</li>
-
-<li>❌ Do not mix wet waste with dry waste.</li>
-
-<li>🚫 Do not throw plastics in the wet waste dustbin.</li>
-
-<li>💧 Avoid unnecessary water usage because water bills are paid by ourselves.</li>
-
-<li>👕 Wash clothes in full loads instead of washing few clothes separately.</li>
-
-<li>🍽️ If you cook personal food, clean vessels and kitchen area after eating.</li>
-
-</ul>
-
-<div class="highlight">
-
-<strong>⚠️ Special Cooking Rule</strong><br><br>
-
-If someone does not know cooking, that person is still responsible for:
-<ul style="margin-top:10px;margin-left:20px;">
-<li>Deciding what to cook</li>
-<li>Buying ingredients</li>
-<li>Cutting vegetables</li>
-<li>Preparing everything</li>
-<li>Managing kitchen work</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="card notice">
-
-<strong>🏠 Final Note</strong><br><br>
-
-Everyone should cooperate to keep the room clean and save water.
-
-</div>
-
-</div>
-
-<footer>
-Made for Better Room Management 🏠
-</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -308,81 +221,49 @@ const client = supabase.createClient(
     SUPABASE_KEY
 );
 
-const people = [
-    "Wahib",
-    "Zuber",
-    "Sakhlen",
-    "Ismail",
-    "Afrid"
-];
-
-const yesChecks =
-document.querySelectorAll('.yesCheck');
-
-const noChecks =
-document.querySelectorAll('.noCheck');
-
-yesChecks.forEach((check,index)=>{
-
-    check.addEventListener('change',()=>{
-
-        if(check.checked){
-            noChecks[index].checked = false;
-        }
-
-    });
-
-});
-
-noChecks.forEach((check,index)=>{
-
-    check.addEventListener('change',()=>{
-
-        if(check.checked){
-            yesChecks[index].checked = false;
-        }
-
-    });
-
-});
+const checkboxes =
+document.querySelectorAll('input[type="checkbox"]');
 
 async function saveStatus(){
 
-    for(let i=0;i<people.length;i++){
+    for(const checkbox of checkboxes){
 
-        let status = '';
+        const name =
+        checkbox.dataset.name;
 
-        if(yesChecks[i].checked){
-            status = 'Yes';
-        }
+        const day =
+        checkbox.dataset.day;
 
-        if(noChecks[i].checked){
-            status = 'No';
-        }
+        const checked =
+        checkbox.checked;
 
-        const { error } = await client
+        const uniqueId =
+        name + '-' + day;
+
+        const { error } =
+        await client
         .from('room_schedule')
         .upsert(
             {
-                day: people[i],
-                person_name: status
+                id: uniqueId,
+                day: day,
+                person_name: name,
+                checked: checked
             },
             {
-                onConflict:'day'
+                onConflict:'id'
             }
         );
 
         if(error){
             console.log(error);
-            alert(error.message);
-            return;
         }
 
     }
 
     document.getElementById('status')
     .innerText =
-    '✅ Status Saved Successfully';
+    '✅ Status Saved & Shared';
 
 }
 
@@ -398,30 +279,22 @@ async function loadStatus(){
         return;
     }
 
-    yesChecks.forEach(check=>{
-        check.checked = false;
-    });
-
-    noChecks.forEach(check=>{
-        check.checked = false;
+    checkboxes.forEach(box=>{
+        box.checked = false;
     });
 
     data.forEach(row=>{
 
-        const index =
-        people.indexOf(row.day);
+        checkboxes.forEach(box=>{
 
-        if(index !== -1){
-
-            if(row.person_name === 'Yes'){
-                yesChecks[index].checked = true;
+            if(
+                box.dataset.name === row.person_name &&
+                box.dataset.day === row.day
+            ){
+                box.checked = row.checked;
             }
 
-            if(row.person_name === 'No'){
-                noChecks[index].checked = true;
-            }
-
-        }
+        });
 
     });
 
@@ -434,19 +307,25 @@ async function clearStatus(){
     .delete()
     .neq('day','');
 
-    yesChecks.forEach(check=>{
-        check.checked = false;
-    });
-
-    noChecks.forEach(check=>{
-        check.checked = false;
+    checkboxes.forEach(box=>{
+        box.checked = false;
     });
 
     document.getElementById('status')
     .innerText =
-    '🗑️ Cleared Successfully';
+    '🗑️ Cleared';
 
 }
+
+checkboxes.forEach(box=>{
+
+    box.addEventListener('change',()=>{
+
+        saveStatus();
+
+    });
+
+});
 
 loadStatus();
 
