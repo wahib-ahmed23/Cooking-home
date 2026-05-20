@@ -142,6 +142,39 @@ button{
     padding:18px;
     border-radius:12px;
 }
+    .card{
+      width:420px;
+      background:white;
+      padding:30px;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.12);
+      text-align:center;
+      transition:0.3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .title{
+      font-size:26px;
+      font-weight:bold;
+      color:#2c3e50;
+      margin-bottom:15px;
+    }
+
+    .quote{
+      font-size:18px;
+      line-height:1.7;
+      color:#555;
+    }
+
+    .footer{
+      margin-top:20px;
+      font-size:15px;
+      color:#27ae60;
+      font-style:italic;
+    }
 </style>
 </head>
 
@@ -278,12 +311,6 @@ Afrid
 </div>
 
 </div>
-
-<button class="clear-btn"
-onclick="clearWashroom()">
-
-</button>
-
 </div>
     <div class="card">
 
@@ -300,7 +327,7 @@ onclick="clearWashroom()">
 </li>
 
 <li>
-🗑️Weekly or every 15 days one person must completely clean the washroom.
+🗑️After the dry waste bin is full, it must be handed over to the BBMP Dry Waste Collection Van, which comes every Sunday and Wednesday between 7:00 AM and 7:30 AM.
 </li>
 
 <li>
@@ -400,8 +427,20 @@ and reduce unnecessary expenses.
 </p>
 
 </div>
-
 </div>
+    <div class="card">
+    <div class="title">Humility & Shared Responsibility</div>
+
+    <div class="quote">
+      “Rent is paid by everyone, water bills are paid by everyone,
+      electricity bills are paid by everyone — so responsibilities
+      should also be shared by everyone.”
+    </div>
+
+    <div class="footer">
+      Respect grows when responsibilities are shared equally.
+    </div>
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
