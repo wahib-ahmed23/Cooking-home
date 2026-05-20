@@ -99,7 +99,30 @@ button{
     color:#0b8043;
     font-weight:bold;
 }
+.washroom-container{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
 
+.person{
+    padding:14px 24px;
+    border-radius:12px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    user-select:none;
+}
+
+.red{
+    background:#d32f2f;
+}
+
+.green{
+    background:#0b8043;
+}
 </style>
 </head>
 
@@ -205,7 +228,44 @@ onclick="clearStatus()">
 </div>
 
 </div>
+<div class="card">
 
+<h2>🧹 Washroom Cleaning Rotation</h2>
+
+<p>
+Every week or every 15 days one person must completely clean the washroom.
+</p>
+
+<div class="washroom-container">
+
+<div class="person red" onclick="toggleClean(this)">
+Wahib
+</div>
+
+<div class="person red" onclick="toggleClean(this)">
+Zuber
+</div>
+
+<div class="person red" onclick="toggleClean(this)">
+Sakhlen
+</div>
+
+<div class="person red" onclick="toggleClean(this)">
+Ismail
+</div>
+
+<div class="person red" onclick="toggleClean(this)">
+Afrid
+</div>
+
+</div>
+
+<button class="clear-btn"
+onclick="clearWashroom()">
+🗑️ Clear Cleaning Status
+</button>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
@@ -330,7 +390,26 @@ checkboxes.forEach(box=>{
 loadStatus();
 
 setInterval(loadStatus,3000);
+async function toggleClean(element){
 
+    element.classList.toggle('green');
+    element.classList.toggle('red');
+
+}
+
+function clearWashroom(){
+
+    const persons =
+    document.querySelectorAll('.person');
+
+    persons.forEach(person=>{
+
+        person.classList.remove('green');
+        person.classList.add('red');
+
+    });
+
+}
 </script>
 
 </body>
