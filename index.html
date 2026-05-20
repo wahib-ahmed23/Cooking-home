@@ -1,28 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Room Management Board</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-:root{
-    --primary:#0b8043;
-    --primary-light:#e8f5e9;
-    --secondary:#1976d2;
-    --danger:#d32f2f;
-    --warning:#ff9800;
-    --dark:#1f2937;
-    --gray:#6b7280;
-    --light:#f9fafb;
-    --white:#ffffff;
-    --shadow:0 10px 30px rgba(0,0,0,0.08);
-    --radius:20px;
-}
 
 *{
     margin:0;
@@ -30,508 +13,434 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#edfdf3,#f5fff7,#eef7ff);
-    color:var(--dark);
-    min-height:100vh;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#e8f5e9,#f5fff7);
+    color:#222;
 }
-
-/* HEADER */
 
 header{
-    background:linear-gradient(135deg,#0b8043,#0f9d58);
+    background:#0b8043;
     color:white;
-    padding:40px 20px;
+    padding:20px;
     text-align:center;
-    box-shadow:0 4px 20px rgba(0,0,0,0.15);
 }
-
-header h1{
-    font-size:2.4rem;
-    margin-bottom:10px;
-}
-
-header p{
-    opacity:0.95;
-    font-size:1rem;
-}
-
-/* CONTAINER */
 
 .container{
     width:95%;
     max-width:1400px;
     margin:auto;
-    padding:30px 0 50px;
+    padding:20px 0;
 }
-
-/* CARDS */
 
 .card{
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(10px);
-    border-radius:var(--radius);
-    padding:28px;
-    margin-bottom:25px;
-    box-shadow:var(--shadow);
-    border:1px solid rgba(255,255,255,0.4);
-    transition:0.3s ease;
-}
-
-.card:hover{
-    transform:translateY(-3px);
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    overflow:auto;
 }
 
 h2{
-    color:var(--primary);
-    margin-bottom:18px;
-    font-size:1.5rem;
-}
-
-/* TABLE */
-
-.table-wrapper{
-    overflow-x:auto;
-    border-radius:18px;
+    color:#0b8043;
+    margin-bottom:15px;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
     min-width:1000px;
-    overflow:hidden;
 }
 
 th{
-    background:linear-gradient(135deg,#d7f5df,#edfdf3);
-    color:#14532d;
-    font-weight:600;
+    background:#d7f5df;
 }
 
 th,td{
-    padding:15px;
-    border:1px solid #e5e7eb;
+    padding:14px;
+    border:1px solid #ddd;
     text-align:center;
-}
-
-tr:nth-child(even){
-    background:#fafafa;
-}
-
-tr:hover{
-    background:#f3fff7;
 }
 
 input[type="checkbox"]{
     width:22px;
     height:22px;
     cursor:pointer;
-    accent-color:var(--primary);
 }
-
-/* BUTTONS */
 
 .buttons{
     display:flex;
-    gap:15px;
-    margin-top:22px;
+    gap:10px;
+    margin-top:15px;
     flex-wrap:wrap;
 }
 
 button{
-    padding:13px 22px;
+    padding:12px 18px;
     border:none;
-    border-radius:12px;
-    font-size:0.95rem;
-    font-weight:600;
+    border-radius:10px;
+    font-size:1rem;
     cursor:pointer;
-    transition:0.25s ease;
-}
-
-button:hover{
-    transform:translateY(-2px);
 }
 
 .save-btn{
-    background:linear-gradient(135deg,#0b8043,#13a35d);
+    background:#0b8043;
     color:white;
-    box-shadow:0 6px 16px rgba(11,128,67,0.25);
 }
 
 .clear-btn{
-    background:linear-gradient(135deg,#d32f2f,#ef5350);
+    background:#d32f2f;
     color:white;
-    box-shadow:0 6px 16px rgba(211,47,47,0.25);
 }
 
 .status{
-    margin-top:16px;
-    color:var(--primary);
-    font-weight:600;
+    margin-top:10px;
+    color:#0b8043;
+    font-weight:bold;
 }
-
-/* WASHROOM */
-
 .washroom-container{
     display:flex;
     gap:15px;
     flex-wrap:wrap;
-    margin-top:22px;
+    margin-top:20px;
 }
 
 .person{
-    padding:14px 26px;
-    border-radius:14px;
+    padding:14px 24px;
+    border-radius:12px;
     color:white;
-    font-weight:600;
+    font-weight:bold;
     cursor:pointer;
-    transition:0.3s ease;
+    transition:0.3s;
     user-select:none;
-    box-shadow:0 5px 12px rgba(0,0,0,0.12);
-}
-
-.person:hover{
-    transform:scale(1.05);
 }
 
 .red{
-    background:linear-gradient(135deg,#d32f2f,#ef5350);
+    background:#d32f2f;
 }
 
 .green{
-    background:linear-gradient(135deg,#0b8043,#16a34a);
+    background:#0b8043;
 }
-
-/* RULES */
-
-.rules{
-    margin-top:10px;
+    .rules li{
+    margin-bottom:14px;
+    line-height:1.7;
 }
-
-.rules li{
-    margin-bottom:15px;
-    line-height:1.8;
-    padding-left:5px;
-}
-
-/* HIGHLIGHT BOX */
 
 .highlight{
     background:#fff8e1;
-    border-left:6px solid var(--warning);
-    padding:22px;
-    border-radius:16px;
-    margin-top:28px;
+    border-left:6px solid #ff9800;
+    padding:18px;
+    border-radius:12px;
+    margin-top:20px;
 }
 
 .notice{
     background:#e3f2fd;
-    border-left:6px solid var(--secondary);
-    padding:22px;
-    border-radius:16px;
-    margin-top:28px;
+    border-left:6px solid #1976d2;
+    padding:18px;
+    border-radius:12px;
 }
-
-/* QUOTE CARD */
-
-.quote-card{
-    text-align:center;
-    background:linear-gradient(135deg,#ffffff,#f7fff9);
-}
-
-.title{
-    font-size:28px;
-    font-weight:700;
-    color:#1e293b;
-    margin-bottom:18px;
-}
-
-.quote{
-    font-size:1.15rem;
-    line-height:1.9;
-    color:#4b5563;
-    max-width:900px;
-    margin:auto;
-}
-
-.footer-text{
-    margin-top:20px;
-    font-size:15px;
-    color:#16a34a;
-    font-style:italic;
-    font-weight:500;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:28px;
-    color:#6b7280;
-    font-size:0.95rem;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-    header h1{
-        font-size:1.8rem;
+    .card{
+      width:420px;
+      background:white;
+      padding:30px;
+      border-radius:18px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.12);
+      text-align:center;
+      transition:0.3s ease;
     }
 
-    .card{
-        padding:20px;
+    .card:hover{
+      transform:translateY(-5px);
     }
 
     .title{
-        font-size:22px;
+      font-size:26px;
+      font-weight:bold;
+      color:#2c3e50;
+      margin-bottom:15px;
     }
 
     .quote{
-        font-size:1rem;
+      font-size:18px;
+      line-height:1.7;
+      color:#555;
     }
 
-}
-
+    .footer{
+      margin-top:20px;
+      font-size:15px;
+      color:#27ae60;
+      font-style:italic;
+    }
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🏠 Room Management Board</h1>
-    <p>Weekly Cooking, Cleaning & Shared Responsibilities</p>
+<h1>🍳 Weekly Cooking Status Board</h1>
+<p>Live Shared Room Management</p>
 </header>
 
 <div class="container">
 
-    <!-- COOKING STATUS -->
-
-    <div class="card">
-
-        <h2>🍳 Weekly Cooking Status</h2>
-
-        <div class="table-wrapper">
-
-            <table>
-
-                <tr>
-                    <th>Name</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                    <th>Sunday</th>
-                </tr>
-
-                <tr>
-                    <td>Wahib</td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Monday"></td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Tuesday"></td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Wednesday"></td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Thursday"></td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Friday"></td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Saturday"></td>
-                    <td><input type="checkbox" data-name="Wahib" data-day="Sunday"></td>
-                </tr>
-
-                <tr>
-                    <td>Zuber</td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Monday"></td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Tuesday"></td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Wednesday"></td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Thursday"></td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Friday"></td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Saturday"></td>
-                    <td><input type="checkbox" data-name="Zuber" data-day="Sunday"></td>
-                </tr>
-
-                <tr>
-                    <td>Sakhlen</td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Monday"></td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Tuesday"></td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Wednesday"></td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Thursday"></td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Friday"></td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Saturday"></td>
-                    <td><input type="checkbox" data-name="Sakhlen" data-day="Sunday"></td>
-                </tr>
-
-                <tr>
-                    <td>Ismail</td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Monday"></td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Tuesday"></td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Wednesday"></td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Thursday"></td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Friday"></td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Saturday"></td>
-                    <td><input type="checkbox" data-name="Ismail" data-day="Sunday"></td>
-                </tr>
-
-                <tr>
-                    <td>Afrid</td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Monday"></td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Tuesday"></td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Wednesday"></td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Thursday"></td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Friday"></td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Saturday"></td>
-                    <td><input type="checkbox" data-name="Afrid" data-day="Sunday"></td>
-                </tr>
-
-            </table>
-
-        </div>
-
-        <div class="buttons">
-
-            <button class="save-btn" onclick="saveStatus()">
-                💾 Save Status
-            </button>
-
-            <button class="clear-btn" onclick="clearStatus()">
-                🗑️ Clear All
-            </button>
-
-        </div>
-
-        <div class="status" id="status"></div>
-
-    </div>
-
-    <!-- WASHROOM -->
-
-    <!-- WASHROOM -->
-
 <div class="card">
 
-    <h2>🧹 Washroom Cleaning Rotation</h2>
+<h2>📅 Weekly Cooking Status</h2>
 
-    <p>
-        Every week or every 15 days, one person must completely clean the washroom.
-    </p>
+<table>
 
-    <div class="washroom-container">
+<tr>
+<th>Name</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+<th>Saturday</th>
+<th>Sunday</th>
+</tr>
 
-        <div class="person green">Wahib</div>
-        <div class="person green">Zuber</div>
-        <div class="person green">Sakhlen</div>
-        <div class="person green">Ismail</div>
-        <div class="person green">Afrid</div>
+<tr>
+<td>Wahib</td>
+<td><input type="checkbox" data-name="Wahib" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Wahib" data-day="Sunday"></td>
+</tr>
 
-    </div>
+<tr>
+<td>Zuber</td>
+<td><input type="checkbox" data-name="Zuber" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Zuber" data-day="Sunday"></td>
+</tr>
+
+<tr>
+<td>Sakhlen</td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Sakhlen" data-day="Sunday"></td>
+</tr>
+
+<tr>
+<td>Ismail</td>
+<td><input type="checkbox" data-name="Ismail" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Ismail" data-day="Sunday"></td>
+</tr>
+
+<tr>
+<td>Afrid</td>
+<td><input type="checkbox" data-name="Afrid" data-day="Monday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Tuesday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Wednesday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Thursday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Friday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Saturday"></td>
+<td><input type="checkbox" data-name="Afrid" data-day="Sunday"></td>
+</tr>
+
+</table>
+
+<div class="buttons">
+
+<button class="save-btn"
+onclick="saveStatus()">
+💾 Save Status
+</button>
+
+<button class="clear-btn"
+onclick="clearStatus()">
+🗑️ Clear All
+</button>
 
 </div>
 
-    <!-- RULES -->
+<div class="status" id="status"></div>
 
+</div>
+
+</div>
+<div class="card">
+
+<h2>🧹 Washroom Cleaning Rotation</h2>
+
+<p>
+Every week or every 15 days one person must completely clean the washroom.
+</p>
+
+<div class="washroom-container">
+
+<div class="person green">
+Wahib
+</div>
+
+<div class="person green">
+Zuber
+</div>
+
+<div class="person green">
+Sakhlen
+</div>
+
+<div class="person green">
+Ismail
+</div>
+
+<div class="person green">
+Afrid
+</div>
+
+</div>
+</div>
     <div class="card">
 
-        <h2>📋 Important House Rules</h2>
+<h2>📋 Important House Rules</h2>
 
-        <ul class="rules">
+<ul class="rules">
 
-            <li>🍲 Whoever cooks the food is responsible for washing vessels and cleaning everything used while cooking.</li>
+<li>
+🍲 Whoever cooks the food is responsible for washing vessels and cleaning everything used while cooking.
+</li>
 
-            <li>🧽 After cooking, clean the cooktop, kitchen platform, vessels, and sink properly.</li>
+<li>
+🧽 After cooking, clean the cooktop, kitchen platform, vessels, and sink properly.
+</li>
 
-            <li>🗑️ After the dry waste bin is full, it must be handed over to the BBMP Dry Waste Collection Van, which comes every Sunday and Wednesday between 7:00 AM and 7:30 AM.</li>
+<li>
+🗑️After the dry waste bin is full, it must be handed over to the BBMP Dry Waste Collection Van, which comes every Sunday and Wednesday between 7:00 AM and 7:30 AM.
+</li>
 
-            <li>🗑️ Use separate dustbins for Dry Waste and Wet Waste.</li>
+<li>
+🗑️ Use separate dustbins for Dry Waste and Wet Waste.
+</li>
 
-            <li>❌ Do not mix wet waste with dry waste.</li>
+<li>
+❌ Do not mix wet waste with dry waste.
+</li>
 
-            <li>🚫 Do not throw plastics in the wet waste dustbin.</li>
+<li>
+🚫 Do not throw plastics in the wet waste dustbin.
+</li>
 
-            <li>💧 Avoid unnecessary water usage because water bills are paid by ourselves.</li>
+<li>
+💧 Avoid unnecessary water usage because water bills are paid by ourselves.
+</li>
 
-            <li>👕 Wash clothes in full loads instead of washing only a few clothes separately.</li>
+<li>
+👕 Wash clothes in full loads instead of washing only a few clothes separately.
+Please avoid washing only a few clothes separately like
+3–4 shirts, pants, socks, or underwear at different times.
+</li>
 
-            <li>💡 Try to collect clothes and wash them together in one or two full loads to reduce unnecessary water usage and electricity consumption.</li>
+<li>
+💧 Try to collect clothes and wash them together in one or two full loads
+to reduce unnecessary water usage and electricity consumption.
+</li>
 
-            <li>🍽️ If you cook personal food, after eating clean your vessels, kitchen area, and sink.</li>
+<li>
+🍽️ If you cook personal food, after eating clean your vessels,
+kitchen area, and sink.
+</li>
 
-        </ul>
+</ul>
 
-        <div class="highlight">
+<div class="highlight">
 
-            <h3>⚠️ Special Cooking Rule</h3>
+<h3>⚠️ Special Cooking Rule</h3>
 
-            <br>
+<br>
 
-            <p>If someone does not know cooking, that person is still responsible for:</p>
+<p>
+If someone does not know cooking,
+that person is still responsible for:
+</p>
 
-            <ul style="margin-top:15px; margin-left:25px; line-height:2;">
-                <li>Deciding what to cook</li>
-                <li>Buying or arranging ingredients</li>
-                <li>Cutting vegetables</li>
-                <li>Preparing everything needed</li>
-                <li>Managing kitchen work</li>
-            </ul>
+<ul style="margin-top:10px; margin-left:20px;">
 
-            <br>
+<li>Deciding what to cook</li>
 
-            <p>
-                That person can take help from another roommate for actual cooking only.
-            </p>
+<li>Buying or arranging ingredients</li>
 
-            <br>
+<li>Cutting vegetables</li>
 
-            <p>
-                The helper only stands and cooks. All remaining responsibilities belong to the assigned person.
-            </p>
+<li>Preparing everything needed</li>
 
-            <br>
+<li>Managing kitchen work</li>
 
-            <p>
-                This help system rotates weekly — if one person helps this week, another roommate should help next week.
-            </p>
+</ul>
 
-        </div>
+<br>
 
-        <div class="notice">
+<p>
+That person can take help from another roommate
+for actual cooking only.
+</p>
 
-            <h3>🏠 Final Note</h3>
+<br>
 
-            <br>
+<p>
+The helper only stands and cooks.
+All remaining responsibilities belong
+to the assigned person.
+</p>
 
-            <p>
-                Everyone should cooperate to keep the room clean, maintain hygiene, save water, and reduce unnecessary expenses.
-            </p>
+<br>
 
-        </div>
-
-    </div>
-
-    <!-- QUOTE -->
-
-    <div class="card quote-card">
-
-        <div class="title">
-            🤝 Humility & Shared Responsibility
-        </div>
-
-        <div class="quote">
-            “Rent is paid by everyone, water bills are paid by everyone, electricity bills are paid by everyone — so responsibilities should also be shared by everyone.”
-        </div>
-
-        <div class="footer-text">
-            Respect grows when responsibilities are shared equally.
-        </div>
-
-    </div>
+<p>
+This help system rotates weekly —
+if one person helps this week,
+another roommate should help next week.
+</p>
 
 </div>
 
-<!-- SUPABASE -->
+<div class="notice" style="margin-top:20px;">
 
+<h3>🏠 Final Note</h3>
+
+<br>
+
+<p>
+Everyone should cooperate to keep the room clean,
+maintain hygiene, save water,
+and reduce unnecessary expenses.
+</p>
+
+</div>
+</div>
+    <div class="card">
+    <div class="title">Humility & Shared Responsibility</div>
+
+    <div class="quote">
+      “Rent is paid by everyone, water bills are paid by everyone,
+      electricity bills are paid by everyone — so responsibilities
+      should also be shared by everyone.”
+    </div>
+
+    <div class="footer">
+      Respect grows when responsibilities are shared equally.
+    </div>
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
@@ -540,7 +449,7 @@ const SUPABASE_URL =
 'https://ijhvrzydeecyahoygtmk.supabase.co';
 
 const SUPABASE_KEY =
-'YOUR_SUPABASE_ANON_KEY';
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqaHZyenlkZWVjeWFob3lndG1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyMDEzNTEsImV4cCI6MjA5NDc3NzM1MX0.GSvg0ObZvpS-1BZGTpAzS0n8Yv9lttWHJLSYlEUbMNs';
 
 const client = supabase.createClient(
     SUPABASE_URL,
@@ -554,11 +463,17 @@ async function saveStatus(){
 
     for(const checkbox of checkboxes){
 
-        const name = checkbox.dataset.name;
-        const day = checkbox.dataset.day;
-        const checked = checkbox.checked;
+        const name =
+        checkbox.dataset.name;
 
-        const uniqueId = name + '-' + day;
+        const day =
+        checkbox.dataset.day;
+
+        const checked =
+        checkbox.checked;
+
+        const uniqueId =
+        name + '-' + day;
 
         const { error } =
         await client
@@ -578,10 +493,12 @@ async function saveStatus(){
         if(error){
             console.log(error);
         }
+
     }
 
-    document.getElementById('status').innerText =
-    '✅ Status Saved Successfully';
+    document.getElementById('status')
+    .innerText =
+    '✅ Status Saved & Shared';
 
 }
 
@@ -629,8 +546,9 @@ async function clearStatus(){
         box.checked = false;
     });
 
-    document.getElementById('status').innerText =
-    '🗑️ All Status Cleared';
+    document.getElementById('status')
+    .innerText =
+    '🗑️ Cleared';
 
 }
 
@@ -647,18 +565,29 @@ checkboxes.forEach(box=>{
 loadStatus();
 
 setInterval(loadStatus,3000);
-
-function toggleClean(element){
+async function toggleClean(element){
 
     element.classList.toggle('green');
     element.classList.toggle('red');
 
 }
+
+function clearWashroom(){
+
+    const persons =
+    document.querySelectorAll('.person');
+
+    persons.forEach(person=>{
+
+        person.classList.remove('green');
+        person.classList.add('red');
+
+    });
+
+}
 </script>
-
-<footer>
-    Made with ❤️ for Better Room Management
+<footer style="text-align:center;padding:25px;color:#666;">
+Made with ❤️ for Better Room Management 🏠
 </footer>
-
 </body>
 </html>
